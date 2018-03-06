@@ -1,6 +1,6 @@
-package guru.springframework.norris.chuck.controller;
+package guru.springframework.norris.chuck.controllers;
 
-import guru.springframework.norris.chuck.service.JokesService;
+import guru.springframework.norris.chuck.services.JokesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,7 @@ public class JokesController {
         this.jokesService = jokesService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping({"/", ""})
     public String getJoke(Model model){
         model.addAttribute("joke", jokesService.getJoke());
         return "chucknorris";
